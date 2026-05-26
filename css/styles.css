@@ -116,7 +116,7 @@ body {
 /* Hero Section */
 .hero {
     color: rgb(255, 255, 255);
-    padding: 0px 20px 180px 20px;
+    padding: 180px 20px 180px 20px;
     text-align: center;
 }
 
@@ -137,15 +137,13 @@ body {
 .colorshift {
   background: linear-gradient(
     180deg,
-    #aaeeff,
     #1fa5ff,
-    #3060ff,
-    #ffe572,
+    #106ce6,
     #ee7752,
     #e73c7e,
     #320186,
-    #177575,
-    #020030
+    #020030,
+    #177575
   );
   background-size: 800% 800%;
   animation: gradient-shift 50s ease-in-out infinite;
@@ -199,6 +197,17 @@ body {
     font-size: 1.25rem;
     margin-bottom: 2.5rem;
     opacity: 0.95;
+}
+
+/* Limit hero media width so videos/images don't exceed 900px */
+.hero .hero-content video,
+.hero .hero-content img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
 }
 
 /* Buttons */
