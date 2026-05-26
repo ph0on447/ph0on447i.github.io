@@ -185,7 +185,7 @@ function getThumbnailSrc(src) {
         return `https://img.youtube.com/vi/${videoId}/0.jpg`;
     }
     if (src.endsWith('.pdf')) {
-        return fallbackImage; // Use the placeholder for PDFs
+        return fallbackImage; // Use a placeholder for unspecified PDFs
     }
     return src;
 }
@@ -201,9 +201,42 @@ function setActiveThumbnails(index) {
             updateLightbox();
         });
 
-        const thumbImage = document.createElement('img');
-        thumbImage.src = getThumbnailSrc(imageSrc);
-        thumbImage.alt = `${galleryLabels[activeGallery]} thumbnail ${thumbIndex + 1}`;
+            const thumbImage = document.createElement('img');
+            // Custom thumbnails for specific gallery items
+            let thumbSrc;
+            if (activeGallery === 'gallery-1' && thumbIndex === 0) {
+                thumbSrc = 'assets/images/Galleries/PCSizzle/PCSizzleReel-Thumb.png';
+            } else if (activeGallery === 'gallery-2' && imageSrc.includes('FIFA-Infographic-1080x1920.webm')) {
+                thumbSrc = 'assets/images/Galleries/FIFA/FIFA-Infographic-1080x1920-Thumb.png';
+            } else if (activeGallery === 'gallery-6') {
+                if (imageSrc.includes('SBLI-Mockup-1.webm')) {
+                    thumbSrc = 'assets/images/Galleries/SBLI/SBLI-Mockup-1-Thumb.png';
+                } else if (imageSrc.includes('SBLI-Mockup-2.webm')) {
+                    thumbSrc = 'assets/images/Galleries/SBLI/SBLI-Mockup-2-Thumb.png';
+                } else {
+                    thumbSrc = getThumbnailSrc(imageSrc);
+                }
+            } else if (activeGallery === 'gallery-5') {
+                if (imageSrc.includes('01-WIIF-Insta3.webm')) {
+                    thumbSrc = 'assets/images/Galleries/WIIF/01-WIIF-Insta3-Thumb.png';
+                } else if (imageSrc.includes('02-WIIF-Insta4.webm')) {
+                    thumbSrc = 'assets/images/Galleries/WIIF/02-WIIF-Insta4-Thumb.png';
+                } else if (imageSrc.includes('06-WIIF-PPT.pdf')) {
+                    thumbSrc = 'assets/images/Galleries/WIIF/06-WIIF-PPT-Thumb.png';
+                } else {
+                    thumbSrc = getThumbnailSrc(imageSrc);
+                }
+            } else if (activeGallery === 'gallery-8') {
+                if (imageSrc.includes('01-PC-PowerPoint.pdf')) {
+                    thumbSrc = 'assets/images/Galleries/PCBranded/01-PC-PowerPoint-Thumb.png';
+                } else {
+                    thumbSrc = getThumbnailSrc(imageSrc);
+                }
+            } else {
+                thumbSrc = getThumbnailSrc(imageSrc);
+            }
+            thumbImage.src = thumbSrc;
+            thumbImage.alt = `${galleryLabels[activeGallery]} thumbnail ${thumbIndex + 1}`;
         thumbButton.appendChild(thumbImage);
         lightboxThumbnails.appendChild(thumbButton);
     });
@@ -215,6 +248,8 @@ function updateLightbox() {
     const lightboxContent = document.querySelector('.lightbox-content');
     
     lightboxContent.innerHTML = '';
+
+    // Handle different media types
     
     if (currentSrc.includes('youtube.com/embed/')) {
         const iframe = document.createElement('iframe');
