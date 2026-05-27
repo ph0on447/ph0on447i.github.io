@@ -37,12 +37,66 @@ body {
     padding: 0 20px;
 }
 
-/* Google Fonts */
+/* Google Font Classes */
+
+.bricolage-grotesque-extralight {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.bricolage-grotesque-light {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.bricolage-grotesque-regular {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.bricolage-grotesque-medium {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.bricolage-grotesque-semibold {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 
 .bricolage-grotesque-bold {
   font-family: "Bricolage Grotesque", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.bricolage-grotesque-extrabold {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
@@ -118,6 +172,18 @@ body {
     color: rgb(255, 255, 255);
     padding: 180px 20px 180px 20px;
     text-align: center;
+}
+
+.hero .hero-content {
+    display: flex;
+    justify-content: center;
+}
+
+.hero .hero-content .hero-lottie {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: block;
 }
 
 @property --color1 {
